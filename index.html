@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergizeX — Online Sports Nutrition Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <header class="site-header">
+    <div class="container header-inner">
+        
+        <div class="header-left-side">
+            <a href="#" class="logo" aria-label="EnergizeX Home">
+                <img src="image/logo.png" alt="EnergizeX Logo" class="logo-img">
+            </a>
+            
+    <nav class="nav-menu desktop-menu" aria-label="Main navigation">
+    <a href="#" class="nav-item dropdown">Products</a>
+    <a href="#" class="nav-item">Contact Us</a>
+</nav>
+        
+        <div class="header-actions">
+            <button type="button" class="action-btn search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </button>
+            
+            <a href="/login" class="action-btn account-link" aria-label="Login">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+            </a>
+            
+            <a href="/cart" class="action-btn cart-icon" aria-label="Shopping Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+                </svg>
+            </a>
+
+            <button type="button" class="burger-menu-btn" aria-label="Toggle menu" id="burgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="#" class="mobile-nav-item">Products</a>
+            <a href="#" class="mobile-nav-item">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+    <section class="hero-section" aria-label="Featured Promotion">
+        <div class="container">
+            <a href="#" class="hero-banner-link">
+                <img src="image/hero-product.png" alt="Wellcore Creatine. Trusted by top athletes. Upto 30% OFF" class="hero-static-banner">
+            </a>
+        </div>
+    </section>
+
+    <section class="categories-section" aria-labelledby="categories-title">
+        <div class="container">
+            <h2 class="section-title" id="categories-title">Shop by Categories</h2>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat1.png" alt="Health Food supplements"></div>
+                    <p class="category-name">Health Food</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat2.png" alt="Protein powders"></div>
+                    <p class="category-name">Proteins</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat3.png" alt="Mass gainers"></div>
+                    <p class="category-name">Gainers</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat4.png" alt="Pre-Workout formulas"></div>
+                    <p class="category-name">Pre-Workout</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat5.png" alt="Fitness accessories"></div>
+                    <p class="category-name">Accessories</p>
+                </div>
+                <div class="category-item">
+                    <div class="category-img-wrapper"><img src="image/cat6.png" alt="Ayurvedic products"></div>
+                    <p class="category-name">Ayurveda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="slider-bestseller" aria-labelledby="bestseller-title">
+        <div class="container">
+            <div class="section-header-flex">
+                <h2 class="section-title" id="bestseller-title">Best Seller</h2>
+            </div>
+
+            <div class="tags-tabs">
+                <button class="tag-tab js-tag-tab">Health Food</button>
+                <button class="tag-tab active js-tag-tab">Proteins</button>
+                <button class="tag-tab js-tag-tab">Gainers</button>
+                <button class="tag-tab js-tag-tab">Pre-Workout</button>
+                <button class="tag-tab js-tag-tab">Accessories</button>
+                <button class="tag-tab js-tag-tab">Ayurveda</button>
+            </div>
+
+            <div class="slider-outer-wrapper">
+                <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous products">➔</button>
+                <div class="slider-container-track js-slider-track">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-bestseller">BESTSELLER</span>
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/product1.png" alt="Nutrabey Gold 100% Whey Protein Concentrate">
+                                <button class="add-to-cart-btn">Add to cart</button>
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                <div class="price-block">
+                                    <span class="current-price">₹2419.00</span>
+                                    <span class="old-price">₹2419.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-bestseller">BESTSELLER</span>
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/product2.png" alt="Nutrabey Gold Isolate Whey">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                <div class="price-block">
+                                    <span class="current-price">₹2419.00</span>
+                                    <span class="old-price">₹2419.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-bestseller">BESTSELLER</span>
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/product3.png" alt="Nutrabey Gold Instant Whey">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                <div class="price-block">
+                                    <span class="current-price">₹2419.00</span>
+                                    <span class="old-price">₹2419.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-bestseller">BESTSELLER</span>
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/product4.png" alt="Nutrabey Gold Whey Protein Standard">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                <div class="price-block">
+                                    <span class="current-price">₹2419.00</span>
+                                    <span class="old-price">₹2419.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="side-arrow-nav next js-next-btn" aria-label="Next products">➔</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="slider-supplements" aria-labelledby="supplements-title">
+        <div class="container">
+            <div class="section-header-flex">
+                <h2 class="section-title" id="supplements-title">Supplements</h2>
+                <div class="slider-header-controls">
+                    <div class="mini-dots"><span class="m-dot active"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                </div>
+            </div>
+
+            <div class="tags-tabs">
+                <button class="tag-tab js-tag-tab">Oils</button>
+                <button class="tag-tab active js-tag-tab">Skin &amp; Hairs</button>
+                <button class="tag-tab js-tag-tab">Vitality</button>
+                <button class="tag-tab js-tag-tab">Digestion</button>
+                <button class="tag-tab js-tag-tab">Immunity</button>
+                <button class="tag-tab js-tag-tab">Peanut Butter</button>
+            </div>
+
+            <div class="slider-outer-wrapper">
+                <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous supplements">➔</button> 
+                <div class="slider-container-track js-slider-track">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/supp1.png" alt="Nutrabey Skin Collagen Complex">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold Skin Collagen Complex</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/supp2.png" alt="Nutrabey Vitality Support">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold Vitality Multivitamin</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/supp3.png" alt="Nutrabey Digestion Probiotic">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold Balanced Probiotics</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/supp4.png" alt="Nutrabey Immunity Booster">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Gold Active Immunity Booster</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="side-arrow-nav next js-next-btn" aria-label="Next supplements">➔</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="slider-new-launched" aria-labelledby="new-launched-title">
+        <div class="container">
+            <div class="section-header-flex">
+                <h2 class="section-title" id="new-launched-title">New Launched Products</h2>
+                <div class="slider-header-controls">
+                    <div class="mini-dots"><span class="m-dot active"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                </div>
+            </div>
+
+            <div class="slider-outer-wrapper">
+                <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous new products">➔</button>
+                <div class="slider-container-track js-slider-track">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/new1.png" alt="Nutrabey Joint Support formula">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Advanced Joint Support Formula</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/new2.png" alt="Nutrabey Omega 3 Fish Oil">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Premium Triple Omega 3</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/new3.png" alt="Nutrabey Ashwagandha Extracts">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey Pure Ashwagandha KSM-66</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="card-image-box">
+                                <span class="badge-discount-tag">-50%</span>
+                                <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                <img src="image/new4.png" alt="Nutrabey Pre-Workout Powder">
+                            </div>
+                            <div class="card-info">
+                                <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                <h3 class="product-title"><a href="#">Nutrabey High Performance Pre-Workout</a></h3>
+                                <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="side-arrow-nav next js-next-btn" aria-label="Next new products">➔</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-timer-section" aria-label="Limited edition offer">
+        <div class="container">
+            <div class="timer-banner">
+                <div class="timer-graphic-side">
+                   <div class="promo-products-images">
+    <img src="image/promo-full-bg.png" class="promo-full-bg" alt="Promo Pack">
+</div>
+                </div>
+                <div class="timer-content-side">
+                    <span class="limited-edition-label">Limited Edition</span>
+                    <h2 class="timer-promo-title">Hurry up! 30% OFF</h2>
+                    <p class="timer-promo-subtitle">The World's #1 Sports Nutrition Brand</p>
+                    <p class="expires-text">Offer expires in:</p>
+                    <div class="countdown-display">
+                        <div class="countdown-box"><span class="time-num" id="days">02</span><span class="time-label">Days</span></div>
+                        <div class="countdown-box"><span class="time-num" id="hours">12</span><span class="time-label">Hours</span></div>
+                        <div class="countdown-box"><span class="time-num" id="minutes">45</span><span class="time-label">Mins</span></div>
+                        <div class="countdown-box"><span class="time-num" id="seconds">05</span><span class="time-label">Secs</span></div>
+                    </div>
+                    <a href="#" class="btn-shop-now">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="pre-footer" aria-label="Support and Social links">
+            <div class="help-card">
+                <h3>Need Help?</h3>
+                <div class="help-links">
+                    <a href="mailto:support@energizex.com">Mail Us &gt;&gt; support@energizex.com</a>
+                    <a href="#">&gt;&gt; FAQs</a>
+                </div>
+                <a href="#" class="btn-help-center">Help Center</a>
+            </div>
+
+            <div class="connect-side">
+                <h4 class="connect-title">Connect with Us</h4>
+                <ul class="social-icons-row">
+                    <li><a href="#" class="social-icon-item"><img src="image/icon-instagram.svg" alt="EnergizeX Instagram"></a></li>
+                    <li><a href="#" class="social-icon-item"><img src="image/icon-facebook.svg" alt="EnergizeX Facebook"></a></li>
+                    <li><a href="#" class="social-icon-item"><img src="image/icon-twitter.svg" alt="EnergizeX Twitter"></a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div class="footer-brand-col">
+                    <h2>EnergizeX</h2>
+                    <p>Your premium destination for authentic premium sports nutrition, vitamins, and fitness supplements designed to power your ultimate performance goals.</p>
+                </div>
+                
+                <nav class="footer-links-col" aria-label="Footer Quick Links">
+                    <h4>Page</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <nav class="footer-links-col" aria-label="Footer Information">
+                    <h4>Info</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return &amp; Refund</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="footer-links-col">
+                    <h4>Office</h4>
+                    <address class="footer-office-text">
+                        43111 Hai Trieu street,<br>
+                        District 1, HCMC<br>
+                        Vietnam<br><br>
+                        <a href="tel:+847563237">84-756-3237</a>
+                    </address>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="footer-bottom-bar">
+                <p class="copyright-text">Copyright © 2026 EnergizeX. All rights reserved</p>
+                <ul class="payment-methods" aria-label="Accepted Payment Methods">
+                    <li><img src="image/visa.svg" alt="Visa"></li>
+                    <li><img src="image/amex.svg" alt="American Express"></li>
+                    <li><img src="image/mastercard.svg" alt="Mastercard"></li>
+                    <li><img src="image/stripe.svg" alt="Stripe"></li>
+                    <li><img src="image/paypal.svg" alt="PayPal"></li>
+                    <li><img src="image/applepay.svg" alt="Apple Pay"></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initSlider(sliderId) {
+            const container = document.getElementById(sliderId);
+            if (!container) return;
+
+            const track = container.querySelector('.js-slider-track');
+            const wrapper = container.querySelector('.slider-outer-wrapper');
+            if (!wrapper || !track) return;
+
+            const prevBtn = wrapper.querySelector('.js-prev-btn');
+            const nextBtn = wrapper.querySelector('.js-next-btn');
+            const dots = container.querySelectorAll('.m-dot');
+
+            const getScrollStep = () => {
+                const card = track.querySelector('.product-card');
+                if (!card) return 300;
+                const grid = track.querySelector('.products-grid');
+                const style = window.getComputedStyle(grid || track);
+                const gap = parseInt(style.gap) || 20;
+                return card.offsetWidth + gap;
+            };
+
+            if (nextBtn) {
+                nextBtn.onclick = () => {
+                    track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                };
+            }
+
+            if (prevBtn) {
+                prevBtn.onclick = () => {
+                    track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                };
+            }
+
+            if (dots.length > 0) {
+                track.addEventListener('scroll', () => {
+                    const maxScrollLeft = track.scrollWidth - track.clientWidth;
+                    if (maxScrollLeft <= 0) return;
+                    const percentage = track.scrollLeft / maxScrollLeft;
+                    const activeIndex = Math.min(Math.floor(percentage * dots.length), dots.length - 1);
+                    
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
+                });
+            }
+
+            const tabs = container.querySelectorAll('.js-tag-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initSlider('slider-bestseller');
+            initSlider('slider-supplements');
+            initSlider('slider-new-launched');
+
+            const countdownDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000) + (12 * 60 * 60 * 1000);
+
+            const updateTimer = () => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const daysElem = document.getElementById('days');
+                const hoursElem = document.getElementById('hours');
+                const minutesElem = document.getElementById('minutes');
+                const secondsElem = document.getElementById('seconds');
+
+                if (daysElem) daysElem.textContent = String(d).padStart(2, '0');
+                if (hoursElem) hoursElem.textContent = String(h).padStart(2, '0');
+                if (minutesElem) minutesElem.textContent = String(m).padStart(2, '0');
+                if (secondsElem) secondsElem.textContent = String(s).padStart(2, '0');
+            };
+
+            const timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-item');
+
+        // Функция открыть/закрыть
+        function toggleMenu() {
+            burgerBtn.classList.toggle('is-active');
+            mobileMenu.classList.toggle('is-active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        burgerBtn.addEventListener('click', toggleMenu);
+
+        // Закрываем меню при клике на любой из пунктов внутри него
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('is-active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

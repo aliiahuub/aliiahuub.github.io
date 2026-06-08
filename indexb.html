@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergizeX — Online Sports Nutrition Store</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styleb.css">
+
+    <!--
+    ============================================================
+    ЗАДАНИЕ №5 — Bootstrap-оверрайды и адаптивная сетка
+    Все правила ниже только ДОПОЛНЯЮТ оригинальный style.css.
+    Оригинальный файл style.css остаётся нетронутым.
+    ============================================================
+    -->
+    <style>
+        /* ----------------------------------------------------------
+           Bootstrap-reset: убираем конфликт с оригинальным * {margin:0}
+           Bootstrap добавляет свои сбросы — совместимо.
+        ---------------------------------------------------------- */
+
+        /* Переопределяем .container Bootstrap под дизайн-систему проекта */
+        .container,
+        .container-fluid {
+            --bs-gutter-x: 1.5rem;
+        }
+
+        /* Bootstrap .container имеет max-width breakpoints;
+           переопределяем под 1240px проекта */
+        @media (min-width: 1400px) {
+            .container { max-width: 1240px; }
+        }
+        @media (min-width: 1200px) {
+            .container { max-width: 1240px; }
+        }
+
+        /* Фиксированный хедер — Bootstrap утилиты дополняют оригинал */
+        .site-header .container {
+            max-width: 1240px;
+        }
+
+       
+            /* Используем Bootstrap row внутри header */
+
+        /* ---- КАТЕГОРИИ: убираем оригинальный grid, Bootstrap берёт управление ---- */
+        .categories-section .categories-grid {
+            /* Отключаем оригинальный CSS Grid — Bootstrap row/col заменяет */
+            display: flex !important;
+            flex-wrap: wrap !important;
+            /* Отступы через Bootstrap gutter — gx-3 gy-3 */
+        }
+
+        .category-item {
+            /* Размер определяется Bootstrap col-* классами */
+            width: auto;
+        }
+
+        /* ---- PROMO TIMER: Bootstrap grid заменяет CSS Grid ---- */
+        .timer-banner {
+            display: flex !important;
+            flex-wrap: wrap;
+        }
+        .timer-graphic-side,
+        .timer-content-side {
+            box-sizing: border-box;
+        }
+
+        /* ---- FOOTER: Bootstrap grid заменяет CSS Grid ---- */
+        .footer-top-grid {
+            display: flex !important;
+            flex-wrap: wrap;
+        }
+
+        /* ---- PRE-FOOTER: Bootstrap grid заменяет flex ---- */
+        .pre-footer {
+            display: flex !important;
+            flex-wrap: wrap;
+        }
+
+        /* ---- FOOTER BOTTOM BAR ---- */
+        .footer-bottom-bar {
+            display: flex !important;
+            flex-wrap: wrap;
+        }
+
+        /* Убираем фиксированную ширину в px у .help-card для адаптивности */
+        .help-card {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER — Bootstrap: фиксированный, container + row + col
+     Критерии: 1 (container), 2 (row→col), 3 (брейкпойнты),
+               5 (align-items-center, justify-content-between)
+     ============================================================ -->
+<header class="site-header">
+  <div class="container-fluid px-3 d-flex align-items-center justify-content-between position-relative">
+    
+    <a class="logo" href="#">
+      <img src="image/logo.png" alt="EnergizeX" style="height: 32px; width: auto;">
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="visually-hidden">
+
+    <div class="mobile-menu-wrapper">
+      <ul class="nav-menu-list">
+        <li><a href="#">Продукция</a></li>
+        <li><a href="#">Связаться с нами</a></li>
+      </ul>
+    </div>
+
+    <div class="d-flex align-items-center gap-3 header-controls-block">
+      
+      <div class="header-icons d-flex gap-3">
+        <a href="#" class="action-link" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </a>
+        <a href="#" class="action-link" aria-label="Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+        </a>
+        <a href="#" class="action-link" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </a>
+      </div>
+
+      <label for="menu-toggle" class="custom-burger-btn" aria-label="Toggle navigation">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </label>
+      
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ============================================================
+     HERO — Bootstrap: container + row + col-12
+     Критерии: 1 (container), 2 (row→col)
+     ============================================================ -->
+<section class="hero-section" aria-label="Featured Promotion">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="#" class="hero-banner-link">
+                    <img src="image/hero-product.png"
+                         alt="Wellcore Creatine. Trusted by top athletes. Upto 30% OFF"
+                         class="hero-static-banner">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     КАТЕГОРИИ — Bootstrap: container + row + адаптивные col-*
+     Критерии: 1 (container), 2 (row→col), 3 (col-sm-4 col-md-2),
+               4 (gx-3 gy-3), 5 (text-center)
+     ============================================================ -->
+<section class="categories-section" aria-labelledby="categories-title">
+    <div class="container">
+        <h2 class="section-title" id="categories-title">Shop by Categories</h2>
+
+        <!--
+            row с gutter-классами вместо ручного gap (критерий 4).
+            col-6 col-sm-4 col-md-2 — 6 колонок на десктопе,
+            3 на планшете, 2 на мобильном (критерий 3).
+        -->
+        <div class="row gx-3 gy-3 mt-3">
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat1.png" alt="Health Food supplements">
+                    </div>
+                    <p class="category-name">Health Food</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat2.png" alt="Protein powders">
+                    </div>
+                    <p class="category-name">Proteins</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat3.png" alt="Mass gainers">
+                    </div>
+                    <p class="category-name">Gainers</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat4.png" alt="Pre-Workout formulas">
+                    </div>
+                    <p class="category-name">Pre-Workout</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat5.png" alt="Fitness accessories">
+                    </div>
+                    <p class="category-name">Accessories</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="category-item">
+                    <div class="category-img-wrapper">
+                        <img src="image/cat6.png" alt="Ayurvedic products">
+                    </div>
+                    <p class="category-name">Ayurveda</p>
+                </div>
+            </div>
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+<!-- ============================================================
+     BEST SELLER — Bootstrap: container + row + col
+     Слайдер сохраняет оригинальную механику (overflow-x scroll).
+     Bootstrap управляет только верхним layout секции.
+     Критерии: 1 (container), 2 (row→col), 8 (mt-* утилиты)
+     ============================================================ -->
+<section class="products-section" id="slider-bestseller" aria-labelledby="bestseller-title">
+    <div class="container">
+
+        <!-- Заголовок секции в Bootstrap row -->
+        <div class="row align-items-center justify-content-between mt-4 mb-3">
+            <div class="col-auto">
+                <h2 class="section-title" id="bestseller-title">Best Seller</h2>
+            </div>
+        </div>
+
+        <!-- Табы фильтрации -->
+        <div class="row">
+            <div class="col-12">
+                <div class="tags-tabs">
+                    <button class="tag-tab js-tag-tab">Health Food</button>
+                    <button class="tag-tab active js-tag-tab">Proteins</button>
+                    <button class="tag-tab js-tag-tab">Gainers</button>
+                    <button class="tag-tab js-tag-tab">Pre-Workout</button>
+                    <button class="tag-tab js-tag-tab">Accessories</button>
+                    <button class="tag-tab js-tag-tab">Ayurveda</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайдер — оригинальная механика сохраняется -->
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-outer-wrapper">
+                    <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous products">➔</button>
+                    <div class="slider-container-track js-slider-track">
+                        <div class="products-grid">
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-bestseller">BESTSELLER</span>
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/product1.png" alt="Nutrabey Gold 100% Whey Protein Concentrate">
+                                    <button class="add-to-cart-btn">Add to cart</button>
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                    <div class="price-block">
+                                        <span class="current-price">₹2419.00</span>
+                                        <span class="old-price">₹2419.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-bestseller">BESTSELLER</span>
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/product2.png" alt="Nutrabey Gold Isolate Whey">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                    <div class="price-block">
+                                        <span class="current-price">₹2419.00</span>
+                                        <span class="old-price">₹2419.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-bestseller">BESTSELLER</span>
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/product3.png" alt="Nutrabey Gold Instant Whey">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                    <div class="price-block">
+                                        <span class="current-price">₹2419.00</span>
+                                        <span class="old-price">₹2419.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-bestseller">BESTSELLER</span>
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/product4.png" alt="Nutrabey Gold Whey Protein Standard">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold 100% Whey Protein Concentrate</a></h3>
+                                    <div class="price-block">
+                                        <span class="current-price">₹2419.00</span>
+                                        <span class="old-price">₹2419.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /.products-grid -->
+                    </div><!-- /.slider-container-track -->
+                    <button class="side-arrow-nav next js-next-btn" aria-label="Next products">➔</button>
+                </div><!-- /.slider-outer-wrapper -->
+            </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+</section>
+
+
+<!-- ============================================================
+     SUPPLEMENTS — Bootstrap: container + row + col
+     ============================================================ -->
+<section class="products-section" id="slider-supplements" aria-labelledby="supplements-title">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between mt-4 mb-3">
+            <div class="col-auto">
+                <h2 class="section-title" id="supplements-title">Supplements</h2>
+            </div>
+            <div class="col-auto">
+                <div class="slider-header-controls">
+                    <div class="mini-dots">
+                        <span class="m-dot active"></span>
+                        <span class="m-dot"></span>
+                        <span class="m-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="tags-tabs">
+                    <button class="tag-tab js-tag-tab">Oils</button>
+                    <button class="tag-tab active js-tag-tab">Skin &amp; Hairs</button>
+                    <button class="tag-tab js-tag-tab">Vitality</button>
+                    <button class="tag-tab js-tag-tab">Digestion</button>
+                    <button class="tag-tab js-tag-tab">Immunity</button>
+                    <button class="tag-tab js-tag-tab">Peanut Butter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-outer-wrapper">
+                    <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous supplements">➔</button>
+                    <div class="slider-container-track js-slider-track">
+                        <div class="products-grid">
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/supp1.png" alt="Nutrabey Skin Collagen Complex">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold Skin Collagen Complex</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/supp2.png" alt="Nutrabey Vitality Support">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold Vitality Multivitamin</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/supp3.png" alt="Nutrabey Digestion Probiotic">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold Balanced Probiotics</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/supp4.png" alt="Nutrabey Immunity Booster">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Gold Active Immunity Booster</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                        </div><!-- /.products-grid -->
+                    </div><!-- /.slider-container-track -->
+                    <button class="side-arrow-nav next js-next-btn" aria-label="Next supplements">➔</button>
+                </div><!-- /.slider-outer-wrapper -->
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+</section>
+
+
+<!-- ============================================================
+     NEW LAUNCHED — Bootstrap: container + row + col
+     ============================================================ -->
+<section class="products-section" id="slider-new-launched" aria-labelledby="new-launched-title">
+    <div class="container">
+
+        <div class="row align-items-center justify-content-between mt-4 mb-3">
+            <div class="col-auto">
+                <h2 class="section-title" id="new-launched-title">New Launched Products</h2>
+            </div>
+            <div class="col-auto">
+                <div class="slider-header-controls">
+                    <div class="mini-dots">
+                        <span class="m-dot active"></span>
+                        <span class="m-dot"></span>
+                        <span class="m-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="slider-outer-wrapper">
+                    <button class="side-arrow-nav prev js-prev-btn" aria-label="Previous new products">➔</button>
+                    <div class="slider-container-track js-slider-track">
+                        <div class="products-grid">
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/new1.png" alt="Nutrabey Joint Support formula">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Advanced Joint Support Formula</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/new2.png" alt="Nutrabey Omega 3 Fish Oil">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Premium Triple Omega 3</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/new3.png" alt="Nutrabey Ashwagandha Extracts">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey Pure Ashwagandha KSM-66</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="card-image-box">
+                                    <span class="badge-discount-tag">-50%</span>
+                                    <button class="wishlist-icon" aria-label="Add to wishlist">♡</button>
+                                    <img src="image/new4.png" alt="Nutrabey Pre-Workout Powder">
+                                </div>
+                                <div class="card-info">
+                                    <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+                                    <h3 class="product-title"><a href="#">Nutrabey High Performance Pre-Workout</a></h3>
+                                    <div class="price-block"><span class="current-price">₹2419.00</span><span class="old-price">₹2419.00</span></div>
+                                </div>
+                            </div>
+
+                        </div><!-- /.products-grid -->
+                    </div><!-- /.slider-container-track -->
+                    <button class="side-arrow-nav next js-next-btn" aria-label="Next new products">➔</button>
+                </div><!-- /.slider-outer-wrapper -->
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+</section>
+
+
+<!-- ============================================================
+     PROMO TIMER — Bootstrap: container + row + col-md-6 / col-lg-7
+     Критерии: 1 (container), 2 (row→col), 3 (col-md-* col-lg-*),
+               4 (g-0 — нулевой gutter для слитного баннера),
+               5 (align-items-stretch)
+     ============================================================ -->
+<section class="promo-timer-section" aria-label="Limited edition offer">
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-12">
+
+                <!--
+                    Внутренняя Bootstrap-сетка вместо CSS Grid (критерий 7).
+                    g-0 — нет gutters, чтобы картинка и контент сливались.
+                    align-items-stretch — обе колонки одной высоты (критерий 5).
+                -->
+                <div class="timer-banner">
+                    <div class="row g-0 align-items-stretch w-100">
+
+                        <!-- Графическая часть: 7/12 на lg, 6/12 на md, полная ширина на мобиле -->
+                        <div class="col-12 col-md-6 col-lg-7">
+                            <div class="timer-graphic-side h-100">
+                                <div class="promo-products-images">
+                                    <img src="image/promo-full-bg.png"
+                                         alt="MuscleTech, Tri-Blend and ON Gold Standard Whey Promo"
+                                         class="promo-full-bg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Контент: 5/12 на lg, 6/12 на md, полная ширина на мобиле -->
+                        <div class="col-12 col-md-6 col-lg-5">
+                            <div class="timer-content-side">
+                                <span class="limited-edition-label">Limited Edition</span>
+                                <h2 class="timer-promo-title">Hurry up! 30% OFF</h2>
+                                <p class="timer-promo-subtitle">The World's #1 Sports Nutrition Brand</p>
+                                <p class="expires-text">Offer expires in:</p>
+                                <div class="countdown-display">
+                                    <div class="countdown-box"><span class="time-num" id="days">02</span><span class="time-label">Days</span></div>
+                                    <div class="countdown-box"><span class="time-num" id="hours">12</span><span class="time-label">Hours</span></div>
+                                    <div class="countdown-box"><span class="time-num" id="minutes">45</span><span class="time-label">Mins</span></div>
+                                    <div class="countdown-box"><span class="time-num" id="seconds">05</span><span class="time-label">Secs</span></div>
+                                </div>
+                                <a href="#" class="btn-shop-now">Shop now</a>
+                            </div>
+                        </div>
+
+                    </div><!-- /.row g-0 -->
+                </div><!-- /.timer-banner -->
+
+            </div><!-- /.col-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+<!-- ============================================================
+     PRE-FOOTER — Bootstrap: container + row + col
+     Критерии: 1 (container), 2 (row→col), 3 (col-md-6 col-lg-5),
+               4 (gy-4), 5 (align-items-center justify-content-between)
+     ============================================================ -->
+<div class="container">
+    <section class="pre-footer py-5" aria-label="Support and Social links">
+
+        <!--
+            row заменяет flex-layout из style.css (критерий 7).
+            gy-4 — вертикальный gutter вместо gap: 40px (критерий 4).
+        -->
+        <div class="row gy-4 align-items-center justify-content-between">
+
+            <!-- Блок "Need Help?" — 12 на mobile, 7 на md, 6 на lg -->
+            <div class="col-12 col-md-7 col-lg-6">
+                <div class="help-card">
+                    <h3>Need Help?</h3>
+                    <div class="help-links">
+                        <a href="mailto:support@energizex.com">Mail Us &gt;&gt; support@energizex.com</a>
+                        <a href="#">&gt;&gt; FAQs</a>
+                    </div>
+                    <a href="#" class="btn-help-center">Help Center</a>
+                </div>
+            </div>
+
+            <!-- Блок "Connect with Us" — 12 на mobile, 4 на md -->
+            <div class="col-12 col-md-4 text-center text-md-end">
+                <div class="connect-side">
+                    <h4 class="connect-title">Connect with Us</h4>
+                    <ul class="social-icons-row justify-content-center justify-content-md-end">
+                        <li><a href="#" class="social-icon-item"><img src="image/icon-instagram.svg" alt="EnergizeX Instagram"></a></li>
+                        <li><a href="#" class="social-icon-item"><img src="image/icon-facebook.svg" alt="EnergizeX Facebook"></a></li>
+                        <li><a href="#" class="social-icon-item"><img src="image/icon-twitter.svg" alt="EnergizeX Twitter"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!-- /.row -->
+    </section>
+</div>
+
+
+<!-- ============================================================
+     FOOTER — Bootstrap: container + row + адаптивные col-*
+     Критерии: 1 (container), 2 (row→col), 3 (col-sm-6 col-lg-3),
+               4 (gx-4 gy-4), 5 (align-items-center),
+               6 (вложенная сетка footer-bottom)
+     ============================================================ -->
+<footer class="site-footer">
+    <div class="container">
+
+        <!--
+            Bootstrap row заменяет CSS Grid grid-template-columns (критерий 7).
+            gx-4 gy-4 — gutters вместо gap: 40px (критерий 4).
+            col-sm-6 col-lg-3 — адаптивные брейкпойнты (критерий 3).
+        -->
+        <div class="row gx-4 gy-4">
+
+            <!-- Бренд — шире остальных: col-lg-4 -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="footer-brand-col">
+                    <h2>EnergizeX</h2>
+                    <p>Your premium destination for authentic premium sports nutrition, vitamins, and fitness supplements designed to power your ultimate performance goals.</p>
+                </div>
+            </div>
+
+            <!-- Page links -->
+            <div class="col-6 col-sm-3 col-lg-2 offset-lg-1">
+                <nav class="footer-links-col" aria-label="Footer Quick Links">
+                    <h4>Page</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Info links -->
+            <div class="col-6 col-sm-3 col-lg-2">
+                <nav class="footer-links-col" aria-label="Footer Information">
+                    <h4>Info</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return &amp; Refund</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Office -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="footer-links-col">
+                    <h4>Office</h4>
+                    <address class="footer-office-text">
+                        43111 Hai Trieu street,<br>
+                        District 1, HCMC<br>
+                        Vietnam<br><br>
+                        <a href="tel:+847563237">84-756-3237</a>
+                    </address>
+                </div>
+            </div>
+
+        </div><!-- /.row (footer top) -->
+
+        <hr class="footer-divider mt-4">
+
+        <!--
+            Вложенная Bootstrap-сетка для footer bottom bar (критерий 6).
+            Внутри .col-12 создаём новый .row — это и есть "вложенность сетки".
+        -->
+        <div class="row">
+            <div class="col-12">
+                <!--
+                    Вложенный row (критерий 6) — внутри колонки своя сетка
+                    для copyright и payment methods.
+                -->
+                <div class="row align-items-center justify-content-between gy-3">
+
+                    <div class="col-12 col-md-auto">
+                        <p class="copyright-text mb-0">Copyright © 2026 EnergizeX. All rights reserved</p>
+                    </div>
+
+                    <div class="col-12 col-md-auto">
+                        <ul class="payment-methods mb-0">
+                            <li><img src="image/visa.svg" alt="Visa"></li>
+                            <li><img src="image/amex.svg" alt="American Express"></li>
+                            <li><img src="image/mastercard.svg" alt="Mastercard"></li>
+                            <li><img src="image/stripe.svg" alt="Stripe"></li>
+                            <li><img src="image/paypal.svg" alt="PayPal"></li>
+                            <li><img src="image/applepay.svg" alt="Apple Pay"></li>
+                        </ul>
+                    </div>
+
+                </div><!-- /.row (nested — критерий 6) -->
+            </div>
+        </div><!-- /.row (footer bottom) -->
+
+    </div><!-- /.container -->
+</footer>
+
+
+<!-- Bootstrap 5 JS Bundle (включает Popper) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+<!-- Оригинальный JavaScript — не изменяется -->
+<script>
+    function initSlider(sliderId) {
+        const container = document.getElementById(sliderId);
+        if (!container) return;
+
+        const track = container.querySelector('.js-slider-track');
+        const wrapper = container.querySelector('.slider-outer-wrapper');
+        if (!wrapper || !track) return;
+
+        const prevBtn = wrapper.querySelector('.js-prev-btn');
+        const nextBtn = wrapper.querySelector('.js-next-btn');
+        const dots = container.querySelectorAll('.m-dot');
+
+        const getScrollStep = () => {
+            const card = track.querySelector('.product-card');
+            if (!card) return 300;
+            const grid = track.querySelector('.products-grid');
+            const style = window.getComputedStyle(grid || track);
+            const gap = parseInt(style.gap) || 20;
+            return card.offsetWidth + gap;
+        };
+
+        if (nextBtn) {
+            nextBtn.onclick = () => {
+                track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            };
+        }
+
+        if (prevBtn) {
+            prevBtn.onclick = () => {
+                track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+            };
+        }
+
+        if (dots.length > 0) {
+            track.addEventListener('scroll', () => {
+                const maxScrollLeft = track.scrollWidth - track.clientWidth;
+                if (maxScrollLeft <= 0) return;
+                const percentage = track.scrollLeft / maxScrollLeft;
+                const activeIndex = Math.min(Math.floor(percentage * dots.length), dots.length - 1);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            });
+        }
+
+        const tabs = container.querySelectorAll('.js-tag-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initSlider('slider-bestseller');
+        initSlider('slider-supplements');
+        initSlider('slider-new-launched');
+
+        const countdownDate = new Date().getTime() + (2 * 24 * 60 * 60 * 1000) + (12 * 60 * 60 * 1000);
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const daysElem = document.getElementById('days');
+            const hoursElem = document.getElementById('hours');
+            const minutesElem = document.getElementById('minutes');
+            const secondsElem = document.getElementById('seconds');
+
+            if (daysElem) daysElem.textContent = String(d).padStart(2, '0');
+            if (hoursElem) hoursElem.textContent = String(h).padStart(2, '0');
+            if (minutesElem) minutesElem.textContent = String(m).padStart(2, '0');
+            if (secondsElem) secondsElem.textContent = String(s).padStart(2, '0');
+        };
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
